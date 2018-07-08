@@ -19,6 +19,6 @@ env:
   global: 
 before_install:
 - openssl aes-256-cbc -K $encrypted_d9c3e000f1e1_key -iv $encrypted_d9c3e000f1e1_iv
-  -in nannan_rsa.enc -out ~\/.ssh/nannan_rsa -d
+  -in nannan_rsa.enc -out ~/.ssh/nannan_rsa -d
 - chmod 600 ~/.ssh/nannan_rsa
 - echo -e "Host 39.106.195.101\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
