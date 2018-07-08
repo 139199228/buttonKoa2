@@ -1,41 +1,24 @@
 language: node_js
-# nodejs版本
-node_js: 
-    - '10'
-
-# Travis-CI Caching
+node_js:
+- '10'
 cache:
   directories:
-    - node_modules
-
-
-# S: Build Lifecycle
+  - node_modules
 install:
-  - gulp
-  - npm install
-  
-before_script:
-
-# 无其他依赖项所以执行pm run build 构建就行了
+- gulp
+- npm install
+before_script: 
 script:
-  - npm run test
-
+- npm run test
 after_script:
-  - cd ./build
-  - git init
-  - git config user.name "${U_NAME}"
-  - git config user.email "${U_EMAIL}"
-  - git add .
-  - git commit -m "Update tools"
-  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-  - scp -r ./build "${U_NAME}":~/
-# E: Build LifeCycle
-
-#指定分支，只有指定的分支提交时才会运行脚本
+- scp ./build root@39.106.195.101 
 branches:
   only:
-    - master
+  - master
 env:
- global:
-   # 我将其添加到了travis-ci的环境变量中
-   #- GH_REF: github.com/yimogit/metools.git 
+  global: 
+before_install:
+- openssl aes-256-cbc -K $encrypted_d9c3e000f1e1_key -iv $encrypted_d9c3e000f1e1_iv
+  -in nannan_rsa.enc -out ~\/.ssh/nannan_rsa -d
+- chmod 600 ~/.ssh/nannan_rsa
+- echo -e "Host 39.106.195.101\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
