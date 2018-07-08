@@ -11,7 +11,7 @@ script:
 - gulp
 - npm run test
 after_script:
-- scp build root@39.106.195.101
+- scp -r build root@39.106.195.101
 branches:
   only:
   - master
