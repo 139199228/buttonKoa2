@@ -22,7 +22,7 @@ script:
 
 after_script
   - cd ./build
-  - git init`
+  - git init
   - git config user.name "${U_NAME}"
   - git config user.email "${U_EMAIL}"
   - git add .
