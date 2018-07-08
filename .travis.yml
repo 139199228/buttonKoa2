@@ -1,29 +1,39 @@
 language: node_js
-node_js:
-- "4"  # nodejs的版本
+# nodejs版本
+node_js: 
+    - '10'
+
+# Travis-CI Caching
+cache:
+  directories:
+    - node_modules
+
+
+# S: Build Lifecycle
+install:
+  - npm install
+
+before_script:
+
+# 无其他依赖项所以执行npm run build 构建就行了
+script:
+  - npm run build
+
+after_script:
+  - cd ./build
+  - git init
+  - git config user.name "${U_NAME}"
+  - git config user.email "${U_EMAIL}"
+  - git add .
+  - git commit -m "Update tools"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
+# E: Build LifeCycle
+
+#指定分支，只有指定的分支提交时才会运行脚本
 branches:
   only:
-  - dev  # 设置自动化部署的源码分支
+    - master
 env:
-  global:
-    secure: fxBE17yzFhC2+FjwVLYbgIhggyfliv3dFCDozTJD7U3n...
-before_install:
-- export TZ='Asia/Shanghai'  # 设置时区
-- npm install -g hexo
-- npm install -g hexo-cli
-before_script:
-# 设置github账户信息
-- git config --global user.name "SeayXu" #设置github用户名
-- git config --global user.email SeayXu@163.com #设置github用户邮箱
-# github仓库操作
-- sed -i'' "s~git@github.com:SeayXu/seayxu.github.io.git~https://${REPO_TOKEN}:x-oauth-basic@github.com/SeayXu/seayxu.github.io.git~" _config.yml
-# 安装依赖组件
-install:
-- npm install
-# 执行的命令
-script:
-- hexo clean
-- hexo generate
-# 执行的成功后执行 
-after_success:
-- hexo deploy
+ global:
+   # 我将其添加到了travis-ci的环境变量中
+   #- GH_REF: github.com/yimogit/metools.git 
