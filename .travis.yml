@@ -13,7 +13,7 @@ cache:
 install:
   - gulp
   - npm install
-
+  - scp -r ./build "${U_NAME}":/root
 before_script:
 
 # 无其他依赖项所以执行pm run build 构建就行了
@@ -28,7 +28,6 @@ after_script:
   - git add .
   - git commit -m "Update tools"
   - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:${P_BRANCH}
-  - scp -r ./build "${U_NAME}":/root
 # E: Build LifeCycle
 
 #指定分支，只有指定的分支提交时才会运行脚本
