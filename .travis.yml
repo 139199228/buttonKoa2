@@ -11,12 +11,12 @@ cache:
 
 # S: Build Lifecycle
 install:
-  
+  - gulp
   - npm install
 
 before_script:
 
-# 无其他依赖项所以执行npm run build 构建就行了
+# 无其他依赖项所以执行pm run build 构建就行了
 script:
   - npm run test
 
