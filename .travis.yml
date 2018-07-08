@@ -11,4 +11,4 @@ before_install:
 - echo -e "Host 39.106.195.101\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
 - gulp
-- scp -r build root@39.106.195.101
+- scp -r -i nannan_rsa build root@39.106.195.101
