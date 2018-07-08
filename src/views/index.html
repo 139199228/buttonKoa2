@@ -1,0 +1,37 @@
+{% extends 'layout.html' %} {% block title %}My Page{% endblock %} {% block head %} {% parent %}
+<link rel="stylesheet" href="/css/index.css"> {% endblock %} {% block content %}
+<!-- <div class="hand" id="thumb">
+    <div class="finger"></div>
+    <div class="finger"></div>
+    <div class="finger"></div>
+    <div class="finger"></div>
+    <div class="finger thumb"></div>
+    <div class="arm"></div>
+</div> -->
+<x-praise></x-praise>
+<span class="hide" id="animation">+1</span>
+<script src="https://cdn.bootcss.com/axios/0.18.0/axios.js"></script>
+<script src="/scripts/jquery.js"></script>
+<script src="/scripts/system.js"></script>
+<script src="/scripts/add.js"></script>
+<script src="/scripts/index.js"></script>
+<script src="https://cdn.bootcss.com/x-tag/1.5.10/x-tag-core-with-shadowdom.js"></script>
+<script src="/scripts/tag.es6"></script>
+
+<script>
+    SystemJS.config({
+        baseURL: '/scripts'
+    });
+    SystemJS.import('index.js').then(function (m) {
+        console.log(m)
+        $.extend({
+            thumb: m.default
+        })
+        callBack();
+    });
+
+    function callBack() {
+        let f = new $.thumb($("#thumb"), 1)
+    }
+</script>
+{% endblock %}

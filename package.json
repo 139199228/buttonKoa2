@@ -1,0 +1,47 @@
+{
+  "name": "buttonKoa2",
+  "version": "1.0.0",
+  "description": "1、使用PHP+mysql完成接口，实现用户点击一次更新数据库总数+1 2、使用koa2+es6封装PHP点赞接口。并建立路由 3、将原项目迁移进入koa2,并顺利通过index/index路由访问 4、将用户点击时间通过axios链接到koa2点赞接口 5、对用户连续点赞时间进行节流 6、完成自动画测试、点赞+1功能的自动化测试、真是页面点击自动化测试。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 1",
+    "build": "babel app.es6 -o app.js && node app.js",
+    "unit": "karma start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/139199228/buttonKoa2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/139199228/buttonKoa2/issues"
+  },
+  "homepage": "https://github.com/139199228/buttonKoa2#readme",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-polyfill": "^6.26.0",
+    "co": "^4.6.0",
+    "koa": "^2.5.1",
+    "koa-simple-router": "^0.2.0",
+    "koa-static": "^5.0.0",
+    "koa-swig": "^2.2.1",
+    "request": "^2.87.0",
+    "request-promise": "^4.2.2",
+    "selenium-webdriver": "^4.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "jasmine": "^3.1.0",
+    "jasmine-core": "^3.1.0",
+    "karma": "^2.0.4",
+    "karma-jasmine": "^1.1.2",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "phantomjs": "^2.1.7",
+    "supertest": "^3.1.0"
+  }
+}
