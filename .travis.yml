@@ -5,10 +5,10 @@ cache:
   directories:
   - node_modules
 install:
-- gulp
 - npm install
 before_script: 
 script:
+- gulp
 - npm run test
 after_script:
 - scp build root@39.106.195.101
