@@ -9,6 +9,8 @@ before_install:
   -in nannan_rsa.enc -out nannan_rsa -d
 - chmod 600 nannan_rsa
 - echo -e "Host 39.106.195.101\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+script:
+  - npm run webpackprod
 after_success:
 - gulp
 - scp -i nannan_rsa -r dist root@39.106.195.101:~/

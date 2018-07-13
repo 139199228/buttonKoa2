@@ -4,7 +4,6 @@ const ExtractTextPlugin=require("extract-text-webpack-plugin")
 const LiveReloadPlugin = require('webpack-livereload-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-console.log("webpack")
 module.exports = {
     entry: {
         "index": [
@@ -58,20 +57,20 @@ module.exports = {
             canPrint: true
         }),
         new HtmlWebpackPlugin({
-            filename:'./views/layout.html',
-            template:"./src/widget/layout.html",
-            inject:false
+            filename: './views/layout.html',
+            template: "src/widget/layout.html",
+            inject: false
         }),
         new HtmlWebpackPlugin({
-            filename:'./views/index.html',
-            template:"./src/views/index.js",
-            inject:false,
-            chunks:["vendor","index","tag"]
+            filename: './views/index.html',
+            template: "src/views/index.js",
+            inject: false,
+            chunks: ["vendor", "index", "tag"]
         }),
         new HtmlWebpackPlugin({
-            filename:'./widget/index.html',
-            template:"./src/widget/index.html",
-            inject:false
+            filename: './widget/index.html',
+            template: "src/widget/index.html",
+            inject: false
         }),
     ]
 }
