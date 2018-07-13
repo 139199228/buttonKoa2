@@ -6,7 +6,23 @@
   "scripts": {
     "test": "echo 1",
     "build": "babel app.es6 -o app.js && node app.js",
-    "unit": "karma start"
+    "unit": "karma start",
+    "webpackdev": "better-npm-run build:dev",
+    "webpackprod": "better-npm-run build:prod"
+  },
+  "betterScripts": {
+    "build:dev": {
+      "command": "webpack --progress --colors",
+      "env": {
+        "NODE_ENV": "dev"
+      }
+    },
+    "build:prod": {
+      "command": "webpack  --progress --colors",
+      "env": {
+        "NODE_ENV": "prod"
+      }
+    }
   },
   "repository": {
     "type": "git",
@@ -22,6 +38,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "babel-polyfill": "^6.26.0",
+    "better-npm-run": "^0.1.0",
     "co": "^4.6.0",
     "koa": "^2.5.1",
     "koa-simple-router": "^0.2.0",
@@ -33,15 +50,24 @@
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^0.1.19",
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.1",
+    "html-webpack-plugin": "^3.2.0",
     "jasmine": "^3.1.0",
     "jasmine-core": "^3.1.0",
     "karma": "^2.0.4",
     "karma-jasmine": "^1.1.2",
     "karma-phantomjs-launcher": "^1.0.4",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
     "phantomjs": "^2.1.7",
-    "supertest": "^3.1.0"
+    "style-loader": "^0.21.0",
+    "supertest": "^3.1.0",
+    "webpack": "^3.8.1",
+    "webpack-livereload-plugin": "^1.2.0"
   }
 }

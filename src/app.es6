@@ -19,7 +19,7 @@ app.context.render = co.wrap(render({
     ext: 'html',
     writeBody: false
   }));
-  
+    
 
 app.use(serve(CONFIG.get("startDiv")));
 
