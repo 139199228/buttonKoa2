@@ -2,9 +2,7 @@ import Koa from "koa";
 import serve from "koa-static";
 import render from "koa-swig";
 import router from "koa-simple-router";
-import babel_co from 'babel-core/register'
-import babel_po from 'babel-polyfill';
-import co from "co"
+import co from "co";
 
 
 import initController from "./controller/init"

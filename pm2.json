@@ -1,0 +1,7 @@
+{
+    "name":"app",
+    "script":"./dist/app.js",
+    "ignore_watch" : "node_modules",
+    "instances" : "max",
+    "exec_mode" : "cluster"
+}
