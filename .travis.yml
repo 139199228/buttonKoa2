@@ -13,4 +13,4 @@ script:
   - npm run webpackprod
 after_success:
 - gulp
-- scp -i nannan_rsa -r dist root@39.106.195.101:~/
+- scp -i nannan_rsa -r dist root@39.106.195.101:/var/www/html/
